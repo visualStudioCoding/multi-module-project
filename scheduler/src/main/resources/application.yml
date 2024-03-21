@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: scheduler
+  profiles:
+    active: local
+    include:
+      - db
+---
+server:
+  port: 8088
+spring:
+  config:
+    activate:
+      on-profile: local
+---

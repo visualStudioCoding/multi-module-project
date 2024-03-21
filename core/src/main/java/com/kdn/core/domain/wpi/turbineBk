@@ -1,0 +1,387 @@
+package com.kdn.core.domain;
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@Table
+public class Turbine {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private LocalDateTime wdate;
+
+	@JsonProperty("turbine_id")
+	private String turbineId;
+
+	@JsonProperty("wt_status")
+	private String wtStatus;
+
+	@JsonProperty("wind_speed")
+	private String windSpeed;
+
+	@JsonProperty("wind_dir")
+	private String windDir;
+
+	@JsonProperty("active_power")
+	private String activePower;
+
+	@JsonProperty("reactive_power")
+	private String reactivePower;
+
+	@JsonProperty("accumulated_power")
+	private String accumulatedPower;
+
+	@JsonProperty("uv_voltage")
+	private String uvVoltage;
+
+	@JsonProperty("vw_voltage")
+	private String vwVoltage;
+
+	@JsonProperty("wu_voltage")
+	private String wuVoltage;
+
+    @Column(name="u_current")
+	@JsonProperty("u_current")
+    private String uCurrent;
+
+    @Column(name="v_current")
+	@JsonProperty("v_current")
+    private String vCurrent;
+
+    @Column(name="w_current")
+	@JsonProperty("w_current")
+    private String wCurrent;
+
+	@JsonProperty("yaw_action")
+	private String yawAction;
+
+	@JsonProperty("pitch_action")
+	private String pitchAction;
+
+	@JsonProperty("idling_action")
+	private String idlingAction;
+
+	@JsonProperty("ambient_temp")
+	private String ambientTemp;
+
+	@JsonProperty("geabox_bearing_temp1")
+	private String geaboxBearingTemp1;
+
+	@JsonProperty("geabox_bearing_temp2")
+	private String geaboxBearingTemp2;
+
+	@JsonProperty("geabox_bearing_temp3")
+	private String geaboxBearingTemp3;
+
+	@JsonProperty("generator_bearing_temp_load")
+	private String generatorBearingTempLoad;
+
+	@JsonProperty("generator_bearing_temp_unload")
+	private String generatorBearingTempUnload;
+
+	@JsonProperty("gearbox_oil_temp")
+	private String gearboxOilTemp;
+
+	@JsonProperty("geabox_oil_pressure")
+	private String geaboxOilPressure;
+
+	@JsonProperty("wrot_ptctlst")
+	private String wrotPtctlst;
+
+	@JsonProperty("wtrm_brkopmod")
+	private String wtrmBrkopmod;
+
+	@JsonProperty("wtrm_lust")
+	private String wtrmLust;
+
+	@JsonProperty("wtrm_ftrst")
+	private String wtrmFtrst;
+
+	@JsonProperty("wtrm_clst")
+	private String wtrmClst;
+
+	@JsonProperty("wtrm_oillevst")
+	private String wtrmOillevst;
+
+	@JsonProperty("wgen_gnopmod")
+	private String wgenGnopmod;
+
+	@JsonProperty("wgen_clst")
+	private String wgenClst;
+
+	@JsonProperty("wgen_gntmpinlet")
+	private String wgenGntmpinlet;
+
+	@JsonProperty("wcnv_cnvopmod")
+	private String wcnvCnvopmod;
+
+	@JsonProperty("wcnv_clst")
+	private String wcnvClst;
+
+	@JsonProperty("wcnv_hz")
+	private String wcnvHz;
+
+	@JsonProperty("wtrf_griconst")
+	private String wtrfGriconst;
+
+	@JsonProperty("wnac_becbulbst")
+	private String wnacBecbulbst;
+
+	@JsonProperty("wnac_anest")
+	private String wnacAnest;
+
+    private String alarm1;
+    private String alarm2;
+    private String alarm3;
+    private String alarm4;
+    private String alarm5;
+    private String alarm6;
+    private String alarm7;
+    private String alarm8;
+    private String err1;
+    private String err2;
+    private String err3;
+    private String err4;
+    private String err5;
+    private String err6;
+    private String err7;
+    private String err8;
+
+	@JsonProperty("turbine_time")
+	private String turbineTime;
+
+	@JsonProperty("turbine_dt")
+	private String turbineDt;
+
+	@JsonProperty("wfc_turbinenumber")
+	private String wfcTurbinenumber;
+
+	@JsonProperty("wfc_stpowerlimit")
+	private String wfcStpowerlimit;
+
+	@JsonProperty("wfc_stfault")
+	private String wfcStfault;
+
+	@JsonProperty("wfc_stgrid")
+	private String wfcStgrid;
+
+	@JsonProperty("wfc_stgriccon")
+	private String wfcStgriccon;
+
+    private String a001;
+    private String a002;
+    private String a003;
+    private String a004;
+    private String a005;
+    private String a006;
+    private String a007;
+    private String a008;
+    private String a009;
+    private String a010;
+    private String a011;
+    private String a012;
+    private String a013;
+    private String a014;
+    private String a015;
+    private String a016;
+    private String a017;
+    private String a018;
+    private String a019;
+    private String a020;
+    private String a021;
+    private String a022;
+    private String a023;
+    private String a024;
+    private String a025;
+    private String a026;
+    private String a027;
+    private String a028;
+    private String a029;
+    private String a030;
+    private String a031;
+    private String a032;
+    private String a033;
+    private String a034;
+    private String a035;
+    private String a036;
+    private String a037;
+    private String a038;
+    private String a039;
+    private String a040;
+    private String auxtrawndtem001;
+    private String auxtrawndtem002;
+    private String blacabtem001;
+    private String blacabtem002;
+    private String blacabtem003;
+    private String blamottem001;
+    private String blamottem002;
+    private String blamottem003;
+    private String envtem;
+    private String geaoilinppre;
+    private String geaoilinptem;
+    private String geaoiltnktem;
+
+	@JsonProperty("generator_rpm")
+	private String generatorRpm;
+
+    @Column(name="generator_winding_temp_w")
+	@JsonProperty("generator_winding_temp_w")
+    private String generatorWindingTempW;
+    @Column(name="generator_winding_temp_u")
+	@JsonProperty("generator_winding_temp_u")
+    private String generatorWindingTempU;
+    @Column(name="generator_winding_temp_v")
+	@JsonProperty("generator_winding_temp_v")
+    private String generatorWindingTempV;
+
+	@JsonProperty("igbt_temp1")
+	private String igbtTemp1;
+
+	@JsonProperty("igbt_temp2")
+	private String igbtTemp2;
+
+    private String naca2afanteminp;
+    private String naca2afantemout;
+    private String naccabtem300;
+    private String naccabtem310;
+
+	@JsonProperty("nacelle_position")
+	private String nacellePosition;
+
+    private String nacpsnsperdd;
+
+	@JsonProperty("pitch_angle1")
+	private String pitchAngle1;
+
+	@JsonProperty("pitch_angle2")
+	private String pitchAngle2;
+
+	@JsonProperty("pitch_angle3")
+	private String pitchAngle3;
+
+	@JsonProperty("rotor_rpm")
+	private String rotorRpm;
+
+    private String towcabtem;
+    private String towtem;
+    private String upscabtem;
+
+	@JsonProperty("wcnv_dclvol")
+	private String wcnvDclvol;
+
+    @Column(name="wcnv_gria_a")
+    private String wcnvGriaA;
+
+    @Column(name="wcnv_gria_b")
+	@JsonProperty("wcnv_gria_b")
+    private String wcnvGriaB;
+    @Column(name="wcnv_gria_c")
+	@JsonProperty("wcnv_gria_c")
+    private String wcnvGriaC;
+    @Column(name="wcnv_gripf_a")
+	@JsonProperty("wcnv_gripf_a")
+    private String wcnvGripfA;
+    @Column(name="wcnv_gripf_b")
+	@JsonProperty("wcnv_gripf_b")
+    private String wcnvGripfB;
+    @Column(name="wcnv_gripf_c")
+	@JsonProperty("wcnv_gripf_c")
+    private String wcnvGripfC;
+
+	@JsonProperty("wfc_cmdfbmodeactpow")
+	private String wfcCmdfbmodeactpow;
+
+	@JsonProperty("wfc_cmdfbmoderctpow")
+	private String wfcCmdfbmoderctpow;
+
+	@JsonProperty("wfc_cmdfbmodewpc")
+	private String wfcCmdfbmodewpc;
+
+	@JsonProperty("wfc_cmdfbwfc")
+	private String wfcCmdfbwfc;
+
+	@JsonProperty("wfc_dmdfbactpwrlim")
+	private String wfcDmdfbactpwrlim;
+
+	@JsonProperty("wfc_dmdfbactpwrramlim")
+	private String wfcDmdfbactpwrramlim;
+
+	@JsonProperty("wfc_dmdfbpf")
+	private String wfcDmdfbpf;
+
+	@JsonProperty("wfc_dmdfbrctpwr")
+	private String wfcDmdfbrctpwr;
+
+	@JsonProperty("wfc_staclactpwr")
+	private String wfcStaclactpwr;
+
+	@JsonProperty("wfc_staclactpwrlim")
+	private String wfcStaclactpwrlim;
+
+	@JsonProperty("wfc_staclrctpwr")
+	private String wfcStaclrctpwr;
+
+	@JsonProperty("wfc_stactpwrrmplim")
+	private String wfcStactpwrrmplim;
+
+	@JsonProperty("wfc_stmodeactpow")
+	private String wfcStmodeactpow;
+
+	@JsonProperty("wfc_stmoderctpow")
+	private String wfcStmoderctpow;
+
+	@JsonProperty("wfc_stmodewpc")
+	private String wfcStmodewpc;
+
+	@JsonProperty("wfc_turbineactpwrrate")
+	private String wfcTurbineactpwrrate;
+
+	@JsonProperty("wfc_turbinenegrctpwrrate")
+	private String wfcTurbinenegrctpwrrate;
+
+	@JsonProperty("wfc_turbineposrctpwrrate")
+	private String wfcTurbineposrctpwrrate;
+
+	@JsonProperty("wfc_turbinetype")
+	private String wfcTurbinetype;
+
+	@JsonProperty("wnac_intltmp")
+	private String wnacIntltmp;
+
+	@JsonProperty("wtrf_trftmptrfgri")
+	private String wtrfTrftmptrfgri;
+
+	@JsonProperty("wtrf_trftmptrftur")
+	private String wtrfTrftmptrftur;
+
+	@JsonProperty("wyaw_cabwup")
+	private String wyawCabwup;
+
+	@JsonProperty("wyaw_yawang")
+	private String wyawYawang;
+
+	private String time;
+
+    @Column(name="wcnv_griphv_a")
+	@JsonProperty("wcnv_griphv_a")
+    private String wcnvGriphvA;
+    @Column(name="wcnv_griphv_b")
+	@JsonProperty("wcnv_griphv_b")
+    private String wcnvGriphvB;
+    @Column(name="wcnv_griphv_c")
+	@JsonProperty("wcnv_griphv_c")
+    private String wcnvGriphvC;
+}

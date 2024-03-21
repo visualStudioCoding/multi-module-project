@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: wpi
+  profiles:
+    active: local
+    include:
+      - db
+---
+server:
+  port: 8080
+spring:
+  config:
+    activate:
+      on-profile: local
+---
