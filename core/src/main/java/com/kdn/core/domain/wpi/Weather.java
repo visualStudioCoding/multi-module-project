@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 @Getter
 @Setter
@@ -25,7 +27,7 @@ public class Weather {
     private String rainyPercent;
     private String precipitationForm;
 
-    @Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
     private LocalDateTime wdate;
 
     private String sky;

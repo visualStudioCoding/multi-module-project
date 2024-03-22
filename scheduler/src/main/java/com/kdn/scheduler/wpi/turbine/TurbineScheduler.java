@@ -29,7 +29,7 @@ public class TurbineScheduler {
 	public void fetchTurbineData() throws IOException {
 		log.info("[turbine scheduler] START");
 		// List<Turbine> turbines = turbineService.turbineDataGenerator();
-		List<Turbine> turbines = turbineService.getTurbines();
+		List<Turbine> turbines = turbineService.turbineApiList();
 		turbineRepository.saveAll(turbines);
 	}
 }

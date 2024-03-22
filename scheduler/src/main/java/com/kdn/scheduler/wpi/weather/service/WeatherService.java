@@ -4,6 +4,6 @@ import com.kdn.core.domain.wpi.Weather;
 
 public interface WeatherService {
 
-	Weather getWeather();
+	Weather weatherApiData();
 
 }

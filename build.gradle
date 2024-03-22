@@ -39,6 +39,7 @@ subprojects{
         implementation 'io.micrometer:micrometer-core'
         implementation("org.springframework.boot:spring-boot-starter-data-jpa")
         implementation 'org.postgresql:postgresql'
+        implementation 'org.mariadb.jdbc:mariadb-java-client'
         implementation 'com.fasterxml.jackson.core:jackson-databind'
         implementation group: 'org.json', name: 'json', version: '20240303'
     }
@@ -65,6 +66,7 @@ project(':gmt') {
 
     dependencies {
         implementation project(':core')
+        implementation group: 'commons-codec', name: 'commons-codec', version: '1.16.1'
     }
 }
 project(':hse') {
@@ -88,6 +90,6 @@ project(':core') {
     jar {enabled = true}
 
     dependencies {
-
+        implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.8'
     }
 }

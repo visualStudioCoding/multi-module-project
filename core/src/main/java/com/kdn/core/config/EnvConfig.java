@@ -19,6 +19,9 @@ public class EnvConfig {
 	@Value("${turbine.api.url}")
 	private String turbineApiUrl;
 
+	@Value("${gmt.ship.api.url}")
+	private String shipApiUrl;
+
 	@Bean
 	public Map<String, String> weatherApiProperties() {
 		Map<String, String> properties = new HashMap<>();
@@ -31,6 +34,13 @@ public class EnvConfig {
 	public Map<String, String> turbineApiProperties() {
 		Map<String, String> properties = new HashMap<>();
 		properties.put("turbineUrl", turbineApiUrl);
+		return properties;
+	}
+
+	@Bean
+	public Map<String, String> shipApiProperties() {
+		Map<String, String> properties = new HashMap<>();
+		properties.put("shipUrl", shipApiUrl);
 		return properties;
 	}
 }

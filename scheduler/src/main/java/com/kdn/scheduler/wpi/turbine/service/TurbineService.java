@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface TurbineService {
 
-	List<Turbine> getTurbines();
+	List<Turbine> turbineApiList();
 	List<Turbine> turbineDataGenerator();
 
 }

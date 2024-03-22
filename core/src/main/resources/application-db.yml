@@ -3,9 +3,13 @@ spring:
     name: core
 logging:
   level:
-    org.hibernate.type: trace
-    org.hibernate.SQL: debug
-    org.hibernate.type.descriptor.sql: trace
+    org:
+      hibernate:
+        SQL: debug
+        type:
+        descriptor:
+          sql: trace
+
 ---
 spring:
   config:
@@ -17,7 +21,7 @@ spring:
     password: ${postgres.local.password}
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true

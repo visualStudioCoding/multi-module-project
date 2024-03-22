@@ -22,10 +22,10 @@ public class WeatherScheduler {
 	private WeatherService weatherService;
 
 	// @Scheduled(cron = "10 * * * * *")
-	@Scheduled(fixedRate = 3000) // 3초마다 실행
+	@Scheduled(fixedRate = 25000) // 25초마다 실행
 	public void fetchWeatherData() {
 		log.info("[weather scheduler] START");
-		Weather weather = weatherService.getWeather();
+		Weather weather = weatherService.weatherApiData();
 
 		weatherRepository.save(weather);
 	}

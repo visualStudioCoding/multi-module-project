@@ -14,6 +14,7 @@ import java.util.Optional;
 import java.util.Random;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
@@ -38,7 +39,7 @@ public class WeatherServiceImpl implements WeatherService {
 
 
 	@Override
-	public Weather getWeather() {
+	public Weather weatherApiData() {
 
 		// DecimalFormat 객체 생성하여 다섯 번째 자리에서 반올림
 		DecimalFormat df = new DecimalFormat("#.##");
@@ -155,6 +156,15 @@ public class WeatherServiceImpl implements WeatherService {
 					Thread.sleep(RETRY_DELAY_MS);
 				}
 
+			} catch (JSONException e) {
+				log.error("JSONException ", e);
+				attempt++;
+				try {
+					Thread.sleep(RETRY_DELAY_MS);
+				} catch (InterruptedException ie) {
+					Thread.currentThread().interrupt(); // 현재 스레드의 인터럽트 상태를 설정
+					log.error("Thread interrupted during retry delay", ie);
+				}
 			} catch (IOException e) {
 				log.error("IOException occurred", e);
 				attempt++;

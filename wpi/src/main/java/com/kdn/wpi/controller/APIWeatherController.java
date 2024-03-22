@@ -10,7 +10,7 @@ import com.kdn.core.model.resbody.WeatherResBody;
 import com.kdn.wpi.service.weather.WeatherService;
 
 @RestController
-@RequestMapping("/api/weather")
+@RequestMapping("/api/weathers")
 public class APIWeatherController {
 
 	@Autowired

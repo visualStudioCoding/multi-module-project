@@ -14,6 +14,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Stream;
 
 import org.json.JSONObject;
 import org.springframework.context.ApplicationContext;
@@ -38,7 +39,7 @@ public class TurbineServiceImpl implements TurbineService {
 
 	private final ApplicationContext applicationContext;
 
-	public List<Turbine> getTurbines() {
+	public List<Turbine> turbineApiList() {
 
 		List<Turbine> turbines =  new ArrayList<>();
 		ObjectMapper mapper = new ObjectMapper().setPropertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE);
@@ -78,6 +79,26 @@ public class TurbineServiceImpl implements TurbineService {
 				JSONObject tObject = jObject.getJSONObject(firstKey);
 				Turbine turbine = mapper.convertValue(tObject.toMap(), Turbine.class);
 
+				String wtStatus = "0";
+
+				// err 필드에 값이 있는지 확인
+				boolean hasError = Stream.of(turbine.getErr1(), turbine.getErr2(), turbine.getErr3(), turbine.getErr4(),
+					turbine.getErr5(), turbine.getErr6(), turbine.getErr7(), turbine.getErr8())
+					.anyMatch(err -> err != null && !err.isEmpty()); // err 값이 null이 아니고, 비어있지 않은 경우를 확인
+
+				// alarm 필드에 값이 있는지 확인
+				boolean hasAlarm = Stream.of(turbine.getAlarm1(), turbine.getAlarm2(), turbine.getAlarm3(), turbine.getAlarm4(),
+					turbine.getAlarm5(), turbine.getAlarm6(), turbine.getAlarm7(), turbine.getAlarm8())
+					.anyMatch(alarm -> alarm != null && !alarm.isEmpty()); // alarm 값이 null이 아니고, 비어있지 않은 경우를 확인
+
+				if(hasError) {
+					wtStatus = "2";
+				}
+				if(hasAlarm) {
+					wtStatus = "1";
+				}
+
+				turbine.setWtStatus(wtStatus); // 0 : 정상, 1 : 멈춤, 2 : 장애
 				turbine.setSido("고창");
 				turbine.setSite("01");
 				turbine.setSerial(maxSerial + 1);

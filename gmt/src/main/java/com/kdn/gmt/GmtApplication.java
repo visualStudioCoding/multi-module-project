@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "com.kdn")
-/*@EnableJpaRepositories(basePackages = "com.kdn.core.repository")
-@EntityScan("com.kdn.core.domain")*/
+@EnableJpaRepositories(basePackages = "com.kdn.core.repository")
+@EntityScan("com.kdn.core.domain")
 public class GmtApplication {
 
     public static void main(String[] args) {

@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
@@ -17,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @IdClass(TurbineId.class)
 public class Turbine {
 
-	@Temporal(TemporalType.TIMESTAMP)
+	@CreationTimestamp
 	private LocalDateTime wdate;
 
 	@Id

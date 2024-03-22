@@ -11,5 +11,5 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ShipId implements Serializable {
 	private String shipId;
-	private String wdate;
+	private String recptnDt;
 }

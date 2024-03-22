@@ -1,20 +1,15 @@
-package com.kdn.core.model.resbody;
+package com.kdn.core.domain.gmt;
 
-import java.time.LocalDateTime;
-
-import org.hibernate.annotations.CreationTimestamp;
-
-import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Setter
 @Getter
-@NoArgsConstructor
-public class ShipResBody {
+@Setter
+@AllArgsConstructor
+public class ShipDto {
+
 	private String shipId;
-	private String timeSect;
 	private String recptnDt;
 	private String sensor;
 	private String lon;
@@ -24,4 +19,5 @@ public class ShipResBody {
 	private String hdg;
 	private String danger;
 	private String shipType;
+	private String timeSect;
 }
