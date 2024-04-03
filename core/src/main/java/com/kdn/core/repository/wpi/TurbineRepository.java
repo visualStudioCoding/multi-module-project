@@ -1,4 +1,4 @@
-package com.kdn.core.repository;
+package com.kdn.core.repository.wpi;
 
 import com.kdn.core.domain.wpi.Turbine;
 

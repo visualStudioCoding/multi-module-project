@@ -15,7 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table
+@Table(name="te_turbininfo")
 @IdClass(TurbineId.class)
 public class Turbine {
 

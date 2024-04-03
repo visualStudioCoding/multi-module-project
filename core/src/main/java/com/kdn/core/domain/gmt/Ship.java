@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.kdn.core.model.resbody.ShipResBody;
+
 import jakarta.persistence.ColumnResult;
 import jakarta.persistence.ConstructorResult;
 import jakarta.persistence.Entity;
@@ -16,9 +18,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @SqlResultSetMapping(
-	name = "ShipDtoMapping",
+	name = "ShipResBodyMapping",
 	classes = @ConstructorResult(
-		targetClass = ShipDto.class,
+		targetClass = ShipResBody.class,
 		columns = {
 			@ColumnResult(name = "ship_id", type = String.class),
 			@ColumnResult(name = "recptn_dt", type = String.class),
@@ -38,7 +40,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@Table
+@Table(name="te_shipinfo")
 @IdClass(ShipId.class)
 public class Ship {
 

@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.kdn.core.domain.gmt.Ship;
-import com.kdn.core.repository.ShipRepository;
+import com.kdn.core.repository.gmt.ShipRepository;
 import com.kdn.scheduler.gmt.ship.service.ShipService;
 
 import lombok.RequiredArgsConstructor;

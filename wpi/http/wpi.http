@@ -1,0 +1,19 @@
+###
+PUT localhost:8080/api/equipments/09
+Content-Type: application/json
+
+{
+  "swrk": "20200900002",
+  "hoki": "09",
+  "description": "#9 Yaw Drive-1(YAD300)",
+  "equipNo": "WP-103507",
+  "eqType": "MHY3",
+  "icndImp": "10",
+  "itypFat": "FRSP",
+  "doccFat": "0001-01-28 BC",
+  "etxtReq": "주요알람 : 2020.01.28 07:40 Yaw motor fault\r\n결함부위 : Yaw motor 동작불량\r\n점검항목 : Yaw converter",
+  "ddayWrk": "0001-01-28"
+}
+
+###
+GET localhost:8080/api/equipments/09

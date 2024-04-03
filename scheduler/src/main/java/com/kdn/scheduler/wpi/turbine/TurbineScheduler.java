@@ -1,7 +1,7 @@
 package com.kdn.scheduler.wpi.turbine;
 
 import com.kdn.core.domain.wpi.Turbine;
-import com.kdn.core.repository.TurbineRepository;
+import com.kdn.core.repository.wpi.TurbineRepository;
 import com.kdn.scheduler.wpi.turbine.service.TurbineService;
 
 import lombok.RequiredArgsConstructor;

@@ -18,7 +18,7 @@ public class APIShipContorller {
 	private ShipService shipService;
 
 	@GetMapping
-	public ResponseEntity<Map<String, Object>> getRecentWeather() {
+	public ResponseEntity<Map<String, Object>> getRecentShipList() {
 		Map<String, Object> shipData = shipService.getRecentShipList();
 		return ResponseEntity.ok(shipData);
 	}

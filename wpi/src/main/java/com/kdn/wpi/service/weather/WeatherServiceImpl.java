@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.kdn.core.domain.wpi.Weather;
 import com.kdn.core.model.resbody.WeatherResBody;
-import com.kdn.core.repository.WeatherRepository;
+import com.kdn.core.repository.wpi.WeatherRepository;
 import com.kdn.wpi.util.WeatherUtil;
 
 import lombok.RequiredArgsConstructor;

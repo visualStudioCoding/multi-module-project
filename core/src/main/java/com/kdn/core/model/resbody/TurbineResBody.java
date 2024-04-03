@@ -53,7 +53,6 @@ public class TurbineResBody {
 	private String wcnvDclvol;
 
 	private String wcnvGriaA;
-
 	private String wcnvGriaB;
 	private String wcnvGriaC;
 	private String wcnvGripfA;

@@ -13,6 +13,7 @@ import org.hibernate.annotations.CreationTimestamp;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name="te_weather")
 public class Weather {
 
     @Id

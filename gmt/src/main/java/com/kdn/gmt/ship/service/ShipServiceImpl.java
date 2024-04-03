@@ -1,7 +1,5 @@
 package com.kdn.gmt.ship.service;
 
-import static java.util.stream.Collectors.toList;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,10 +8,8 @@ import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.stereotype.Service;
 
-import com.kdn.core.domain.gmt.Ship;
-import com.kdn.core.domain.gmt.ShipDto;
 import com.kdn.core.model.resbody.ShipResBody;
-import com.kdn.core.repository.ShipRepository;
+import com.kdn.core.repository.gmt.ShipRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,18 +26,18 @@ public class ShipServiceImpl implements ShipService{
 		Map<String, Object> result = new HashMap<>();
 		List<ShipResBody> dataList = new ArrayList<>();
 
-		List<ShipDto> ships = shipRepository.findRecentShipInfo();
+		List<ShipResBody> ships = shipRepository.findRecentShipInfo();
 
-		for (ShipDto shipItem : ships) {
-			ShipResBody shipResBody = new ShipResBody();
+		for (ShipResBody shipItem : ships) {
+			/*ShipResBody shipResBody = new ShipResBody();*/
 
 			String shipId = shipItem.getShipId();
 			if ("VPASS".equals(shipItem.getSensor())) {
 				byte[] decodedBytes = Base64.decodeBase64(shipId);
 				shipId = new String(decodedBytes);
 			}
-			shipResBody.setShipId(shipId);
-			shipResBody.setTimeSect(shipItem.getTimeSect());
+			shipItem.setShipId(shipId);
+			/*shipResBody.setTimeSect(shipItem.getTimeSect());
 			shipResBody.setRecptnDt(shipItem.getRecptnDt());
 			shipResBody.setLon(shipItem.getLon());
 			shipResBody.setLat(shipItem.getLat());
@@ -50,8 +46,8 @@ public class ShipServiceImpl implements ShipService{
 			shipResBody.setHdg(shipItem.getHdg());
 			shipResBody.setDanger(shipItem.getDanger());
 			shipResBody.setSensor(shipItem.getSensor());
-			shipResBody.setShipType(shipItem.getShipType());
-			dataList.add(shipResBody);
+			shipResBody.setShipType(shipItem.getShipType());*/
+			dataList.add(shipItem);
 		}
 
 		result.put("data", dataList);

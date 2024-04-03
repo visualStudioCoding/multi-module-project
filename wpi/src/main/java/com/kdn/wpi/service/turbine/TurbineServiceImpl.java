@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.kdn.core.domain.wpi.Turbine;
 import com.kdn.core.model.resbody.TurbineResBody;
-import com.kdn.core.repository.TurbineRepository;
+import com.kdn.core.repository.wpi.TurbineRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

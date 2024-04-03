@@ -9,7 +9,6 @@ logging:
         type:
         descriptor:
           sql: trace
-
 ---
 spring:
   config:

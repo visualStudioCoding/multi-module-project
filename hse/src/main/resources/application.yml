@@ -2,7 +2,7 @@ spring:
   application:
     name: hse
   profiles:
-    active: local
+    active: hse-local
     include:
       - db
 ---
@@ -11,5 +11,5 @@ server:
 spring:
   config:
     activate:
-      on-profile: local
+      on-profile: hse-local
 ---

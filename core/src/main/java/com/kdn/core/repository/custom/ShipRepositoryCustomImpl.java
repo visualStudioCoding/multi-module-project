@@ -1,13 +1,11 @@
 package com.kdn.core.repository.custom;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
 import com.kdn.core.domain.gmt.Ship;
-import com.kdn.core.domain.gmt.ShipDto;
+import com.kdn.core.model.resbody.ShipResBody;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -22,9 +20,11 @@ public class ShipRepositoryCustomImpl implements ShipRepositoryCustom{
 	@Override
 	@Transactional
 	public void insertShipWithCondition(List<Ship> ships) {
-		ships.forEach(ship -> entityManager.createNativeQuery("INSERT INTO Ship (ship_id, recptn_dt, sensor, lon, lat, sog, cog, hdg, danger, ship_type, result, msg, wdate) " +
+		String sql = "INSERT INTO Ship (ship_id, recptn_dt, sensor, lon, lat, sog, cog, hdg, danger, ship_type, result, msg, wdate) " +
 			"SELECT :ship_id, :recptn_dt, :sensor, :lon, :lat, :sog, :cog, :hdg, :danger, :ship_type, :result, :msg, now() " +
-			"WHERE NOT EXISTS (SELECT 1 FROM Ship WHERE ship_id = :ship_id AND recptn_dt = :recptn_dt)")
+			"WHERE NOT EXISTS (SELECT 1 FROM Ship WHERE ship_id = :ship_id AND recptn_dt = :recptn_dt)";
+
+		ships.forEach(ship -> entityManager.createNativeQuery(sql)
 			.setParameter("ship_id", ship.getShipId())
 			.setParameter("recptn_dt", ship.getRecptnDt())
 			.setParameter("sensor", ship.getSensor())
@@ -40,8 +40,8 @@ public class ShipRepositoryCustomImpl implements ShipRepositoryCustom{
 			.executeUpdate());
 	}
 
-	public List<ShipDto> findRecentShipInfo() {
-		List<ShipDto> ships = entityManager.createNativeQuery("WITH RankedShips AS ( "
+	public List<ShipResBody> findRecentShipInfo() {
+		String sql = "WITH RankedShips AS ( "
 			+ "    SELECT "
 			+ "                DENSE_RANK() OVER (PARTITION BY ship_id ORDER BY recptn_dt DESC) AS rk, "
 			+ "                ship_id, "
@@ -74,8 +74,8 @@ public class ShipRepositoryCustomImpl implements ShipRepositoryCustom{
 			+ "         FROM "
 			+ "             TimeSectShips "
 			+ "     ) AS FinalRanked "
-			+ "WHERE time_rk = 1;", "ShipDtoMapping").getResultList();
-		return ships;
+			+ "WHERE time_rk = 1";
+		return entityManager.createNativeQuery(sql, "ShipResBodyMapping").getResultList();
 	}
 
 }

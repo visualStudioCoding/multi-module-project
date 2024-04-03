@@ -1,7 +1,7 @@
 package com.kdn.scheduler.wpi.weather;
 
 import com.kdn.core.domain.wpi.Weather;
-import com.kdn.core.repository.WeatherRepository;
+import com.kdn.core.repository.wpi.WeatherRepository;
 import com.kdn.scheduler.wpi.weather.service.WeatherService;
 
 import lombok.RequiredArgsConstructor;

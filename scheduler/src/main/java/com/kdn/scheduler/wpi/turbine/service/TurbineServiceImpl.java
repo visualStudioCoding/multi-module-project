@@ -23,7 +23,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.kdn.core.domain.wpi.Turbine;
-import com.kdn.core.repository.TurbineRepository;
+import com.kdn.core.repository.wpi.TurbineRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
